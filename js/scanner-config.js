@@ -31,7 +31,10 @@ let opts = {
 };
 
 const scanner = new Instascan.Scanner(opts);
-
+scanner.addListener("scan", (content) => {
+    console.log(content);
+    document.getElementById("content").innerHTML = content;
+})
 Instascan.Camera.getCameras().then((cameras) => {
     if (cameras.length > 0){
         scanner.start(cameras[0]);
@@ -43,7 +46,3 @@ Instascan.Camera.getCameras().then((cameras) => {
     console.error(e);
 })
 
-scanner.addEventListener("scan", (content) => {
-    console.log(content);
-    document.getElementById("content").innerHTML = content;
-})
