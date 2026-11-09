@@ -42,3 +42,8 @@ Instascan.Camera.getCameras().then((cameras) => {
 }).catch((e) => {
     console.error(e);
 })
+
+scanner.addEventListener("scan", (content) => {
+    console.log(content);
+    document.getElementById("content").innerHTML = content;
+})
