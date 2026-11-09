@@ -37,7 +37,7 @@ scanner.addListener("scan", (content) => {
 })
 Instascan.Camera.getCameras().then((cameras) => {
     if (cameras.length > 0){
-        scanner.start(cameras[0]);
+        scanner.start(cameras[1]);
     }else{
         console.error('No cameras found');
         alert("No cameras found.");
