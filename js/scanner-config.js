@@ -11,7 +11,7 @@ let opts = {
 
     // Whether to horizontally mirror the video preview. This is helpful when trying to
     // scan a QR code with a user-facing camera. Default true.
-    mirror: true,
+    mirror: false,
 
     // Whether to include the scanned image data as part of the scan result. See the "scan" event
     // for image format details. Default false.
@@ -37,7 +37,7 @@ scanner.addListener("scan", (content) => {
 })
 Instascan.Camera.getCameras().then((cameras) => {
     if (cameras.length > 0){
-        scanner.start(cameras[1]);
+        scanner.start(cameras[0]);
     }else{
         console.error('No cameras found');
         alert("No cameras found.");
